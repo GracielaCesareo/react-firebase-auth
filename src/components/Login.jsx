@@ -24,10 +24,10 @@ const Login = () => {
 
   return (
     <>
-         <div className='w-96 p-8 shadow-md rounded-xl bg-blue-back text-white'>
+         <div className='w-96 p-8 shadow-md rounded-xl bg-blue-back'>
             <form action="">
                 <div className="input-row mb-4">
-                    <label htmlFor="email" className='text-xs block'>Email</label>
+                    <label htmlFor="email" className='text-xs block text-white'>Email</label>
                     <input
                     type="text"
                     id="email"
@@ -42,7 +42,7 @@ const Login = () => {
                     />
                 </div>
                 <div className="input-row mb-4">
-                    <label htmlFor="password" className='text-xs block'>Password</label>
+                    <label htmlFor="password" className='text-xs block text-white'>Password</label>
                     <input
                     type="password"
                     id="password"
@@ -60,26 +60,24 @@ const Login = () => {
                 className="bg-purple text-white px-8 py-2 w-full rounded mb-2"
                 onClick={() => logInWithEmailAndPassword(email, password)}
                 >Login</button>
-                <div className="divider h-px divide-purple"></div>
+                <div className="divider bg-slate h-px mb-4 mt-4"></div>
                 <button
                 className="bg-white text-black px-8 py-2 w-full rounded mb-2"
-                onClick={() => signInWithGoogle}
+                onClick={signInWithGoogle}
                 >
-                    
                 Login with Google
                 </button>
             </form>
 
-            <Link to="/reset">Forgot Password</Link>
-
-            <div>
-            <p>Don't have an account <Link to="register">Register</Link> now</p>
+            <div className="text-right w-full mb-2">
+                <Link to="/reset" className='text-blue-light self-end text-sm'>Forgot Password</Link>
             </div>
 
-            
+            <div>
+            <p className='text-white text-sm text-center'>Don't have an account? <Link to="register" className='text-blue-light'>Register</Link> now</p>
+            </div>
         </div>
     </>
-   
   )
 }
 

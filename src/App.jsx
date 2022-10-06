@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Router, RouterProvider } from "react-router-dom";
 
-import Login from './components/Login';
+import router from './router/router';
 
 function App() {
- 
 
   return (
     <div
@@ -19,11 +18,9 @@ function App() {
       Login Project
       </h1>
 
-        <Routes>
-          <Route path="/" element={<Login />} />
-        </Routes>
+      <RouterProvider router={router} />
+
       
-      {/* <Register /> */}
     </div>
   )
 }

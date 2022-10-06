@@ -15,20 +15,20 @@ const Register = () => {
     const [password, setPassword] = useState('')
 
     const [user, loading, error] = useAuthState(auth);
-    const history = useNavigate();
+    const navigate = useNavigate();
     const register = () => {
         if (!name) alert("Please enter name");
         registerWithEmailAndPassword(name, email, password);
     };
     useEffect(() => {
         if (loading) return;
-        if (user) history.replace("/dashboard");
+        if (user) navigate("/dashboard");
     }, [user, loading]);
 
 
   return (
     <div className="register">
-      <div className="w-96 p-8 shadow-md rounded-xl bg-blue-back text-white">
+      <div className="w-96 p-8 shadow-md rounded-xl bg-blue-back">
         <div className="input-row mb-4">
             <input
             type="text"
@@ -71,14 +71,15 @@ const Register = () => {
         <button className="bg-purple text-white px-8 py-2 w-full rounded mb-2" onClick={register}>
           Register
         </button>
+        <div className="divider bg-slate h-px mb-4 mt-4"></div>
         <button
           className="bg-white text-black px-8 py-2 w-full rounded mb-2"
           onClick={signInWithGoogle}
         >
           Register with Google
         </button>
-        <div>
-          Already have an account? <Link to="/">Login</Link> now.
+        <div className="text-white text-sm text-center">
+          Already have an account? <Link to="/" className='text-blue-light'>Login</Link> now.
         </div>
       </div>
     </div>

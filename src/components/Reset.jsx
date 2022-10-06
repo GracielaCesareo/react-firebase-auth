@@ -14,22 +14,28 @@ function Reset() {
   }, [user, loading]);
   return (
     <div className="reset">
-      <div className="reset__container">
+      <div className='w-96 p-8 shadow-md rounded-xl bg-blue-back'>
+        <label htmlFor="email" className='text-xs block text-white'>Email</label>
         <input
+            id="email"
           type="text"
-          className="reset__textBox"
+          className='border-solid
+                    border-2
+                    rounded
+                    w-full
+                    p-2'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <button
-          className="reset__btn"
+          className="bg-purple text-white px-8 py-2 w-full rounded mb-2 mt-4"
           onClick={() => sendPasswordResetEmail(email)}
         >
           Send password reset email
         </button>
-        <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
+        <div className='text-white text-sm text-center mt-4'>
+          Don't have an account? <Link to="/register" className='text-blue-light'>Register</Link> now.
         </div>
       </div>
     </div>
